@@ -1,6 +1,11 @@
 # hubot-quotes
 
-Quotes storage system for Hubot.
+Quotes storage system for Hubot. Accepts two commands:
+
+* `hubot add quote #tag "This is the quote" -Speaker` - Saves a quote by Speaker with tag #tag
+* `hubot get quote #tag` - Gets a random quote with tag #tag
+
+Requires 'redis-brain' Hubot script for persistence.
 
 ## Directory Structure
 

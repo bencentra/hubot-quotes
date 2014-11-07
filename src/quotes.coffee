@@ -19,11 +19,16 @@ class Quotes
   constructor: (@robot) -> 
     @savePerTag = 25
     @cache = {}
-    @robot.brain.on 'loaded', =>
-      if @robot.brain.data.quotes
-        @cache = @robot.brain.data.quotes
-      else
-        @robot.brain.data.quotes = {}
+    if (@robot.brain)
+      @robot.brain.on 'loaded', =>
+        if @robot.brain.data.quotes
+          @cache = @robot.brain.data.quotes
+        else
+          @robot.brain.data.quotes = {}
+    else
+      @robot.brain = {}
+      @robot.brain.data = {}
+      @robot.brain.data.quotes = {}
 
   dumpCache: ->
     return JSON.stringify(@cache)
