@@ -4,16 +4,16 @@ chai.use require 'sinon-chai'
 
 expect = chai.expect
 
-# describe 'hello-world', ->
-#   beforeEach ->
-#     @robot =
-#       respond: sinon.spy()
-#       hear: sinon.spy()
+describe 'quotes', ->
+  beforeEach ->
+    @robot = 
+      respond: sinon.spy()
+      hear: sinon.spy()
 
-#     require('../src/hello-world')(@robot)
+    require('../src/quotes')(@robot)
 
-#   it 'registers a respond listener', ->
-#     expect(@robot.respond).to.have.been.calledWith(/hello/)
+  it 'adds a quote', ->
+    expect(@robot.repond).to.have.been.calledWith(/add quote #test "Test Quote" -Someone/)
 
-#   it 'registers a hear listener', ->
-#     expect(@robot.hear).to.have.been.calledWith(/orly/)
+  it 'retrieves a quote', ->
+    expect(@robot.hear).to.have.been.calledWith(/get quote #test/)
